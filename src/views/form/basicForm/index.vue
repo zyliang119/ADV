@@ -55,18 +55,6 @@
               label
               :labelCol="{lg: {span: 7}, sm: {span: 7}}"
               :wrapperCol="{lg: {span: 16}, sm: {span: 16} }" >
-              <!-- <a-row type="flex" justify="end">
-                <a-col>
-                  <a-button type="primary" html-type="submit">
-                    查询
-                  </a-button>
-                </a-col>
-                <a-col>
-                  <a-button html-type="submit">
-                  重置
-                  </a-button>
-                </a-col>
-              </a-row> -->
               <a-row type="flex" justify="end">
                 <a-col >
                   <a-button type="primary" html-type="submit">
@@ -82,98 +70,150 @@
             </a-form-item>
           </a-col>
         </a-row>
-
-        <!-- <a-form-item
-          label="目标描述"
-          :labelCol="{lg: {span: 7}, sm: {span: 7}}"
-          :wrapperCol="{lg: {span: 10}, sm: {span: 17} }">
-          <a-textarea
-            rows="4"
-            placeholder="请输入你阶段性工作目标"
-            v-decorator="[
-              'description',
-              {rules: [{ required: true, message: '请输入目标描述' }]}
-            ]" />
-        </a-form-item> -->
-        <!-- <a-form-item
-          label="衡量标准"
-          :labelCol="{lg: {span: 7}, sm: {span: 7}}"
-          :wrapperCol="{lg: {span: 10}, sm: {span: 17} }">
-          <a-textarea
-            rows="4"
-            placeholder="请输入衡量标准"
-            v-decorator="[
-              'type',
-              {rules: [{ required: true, message: '请输入衡量标准' }]}
-            ]" />
-        </a-form-item> -->
-        <!-- <a-form-item
-          label="客户"
-          :labelCol="{lg: {span: 7}, sm: {span: 7}}"
-          :wrapperCol="{lg: {span: 10}, sm: {span: 17} }">
-          <a-input
-            placeholder="请描述你服务的客户，内部客户直接 @姓名／工号"
-            v-decorator="[
-              'customer',
-              {rules: [{ required: true, message: '请描述你服务的客户' }]}
-            ]" />
-        </a-form-item> -->
-        <!-- <a-form-item
-          label="邀评人"
-          :labelCol="{lg: {span: 7}, sm: {span: 7}}"
-          :wrapperCol="{lg: {span: 10}, sm: {span: 17} }"
-          :required="false"
-        >
-          <a-input placeholder="请直接 @姓名／工号，最多可邀请 5 人" />
-        </a-form-item> -->
-        <!-- <a-form-item
-          label="权重"
-          :labelCol="{lg: {span: 7}, sm: {span: 7}}"
-          :wrapperCol="{lg: {span: 10}, sm: {span: 17} }"
-          :required="false"
-        >
-          <a-input-number :min="0" :max="100" />
-          <span> %</span>
-        </a-form-item> -->
-        <!-- <a-form-item
-          label="目标公开"
-          :labelCol="{lg: {span: 7}, sm: {span: 7}}"
-          :wrapperCol="{lg: {span: 10}, sm: {span: 17} }"
-          :required="false"
-          help="客户、邀评人默认被分享"
-        >
-          <a-radio-group v-decorator="['target', { initialValue: 1 }]">
-            <a-radio :value="1">公开</a-radio>
-            <a-radio :value="2">部分公开</a-radio>
-            <a-radio :value="3">不公开</a-radio>
-          </a-radio-group>
-          <a-form-item v-show="form.getFieldValue('target') === 2">
-            <a-select mode="multiple">
-              <a-select-option value="4">同事一</a-select-option>
-              <a-select-option value="5">同事二</a-select-option>
-              <a-select-option value="6">同事三</a-select-option>
-            </a-select>
-          </a-form-item>
-        </a-form-item> -->
         <a-form-item
           :wrapperCol="{ span: 24 }"
           style="text-align: center"
         >
-          <a-button htmlType="submit" type="primary">提交</a-button>
-          <a-button style="margin-left: 8px">保存</a-button>
+
         </a-form-item>
       </a-form>
+    <s-table
+        style="margin-bottom: 24px"
+        row-key="id"
+        :columns="goodsColumns"
+        :data="loadData">
 
+      </s-table>
     </a-card>
   </page-header-wrapper>
 </template>
 
 <script>
+
+import { STable } from '@/components'
+import { getServiceList } from '@/api/manage'
 export default {
   name: 'BaseForm',
+  components: {
+    STable
+  },
   data () {
     return {
-      form: this.$form.createForm(this)
+      form: this.$form.createForm(this),
+      goodsColumns: [
+        {
+          title: '序号',
+          dataIndex: 'id',
+          key: 'id'
+        },
+        {
+          title: '用户名字',
+          dataIndex: 'name',
+          key: 'name'
+        },
+        {
+          title: '询价品类',
+          dataIndex: 'barcode',
+          key: 'barcode'
+        },
+        {
+          title: '产品名称',
+          dataIndex: 'price',
+          key: 'price',
+          align: 'right'
+        },
+        {
+          title: '线索等级',
+          dataIndex: 'num',
+          key: 'num',
+          align: 'right'
+        },
+        {
+          title: '网点',
+          dataIndex: 'amount',
+          key: 'amount',
+          align: 'right'
+        },
+        {
+          title: '询价时间',
+          dataIndex: 'num',
+          key: 'num',
+          align: 'right'
+        },
+        {
+          title: '产品消费率',
+          dataIndex: 'num',
+          key: 'num',
+          align: 'right'
+        },
+        {
+          title: '更新时间',
+          dataIndex: 'num',
+          key: 'num',
+          align: 'right'
+        },
+        {
+          title: '操作',
+          dataIndex: 'num',
+          key: 'num',
+          align: 'right'
+        }
+      ],
+      // 加载数据方法 必须为 Promise 对象
+      loadData: parameter => {
+        console.log('loadData.parameter', parameter)
+        return getServiceList(Object.assign(parameter, this.queryParam))
+          .then(res => {
+            return res.result
+          })
+      }
+      // 加载数据方法 必须为 Promise 对象
+      // loadGoodsData: () => {
+      //   return new Promise(resolve => {
+      //     resolve({
+      //       data: [
+      //         {
+      //           id: '1234561',
+      //           name: '矿泉水 550ml',
+      //           barcode: '12421432143214321',
+      //           price: '2.00',
+      //           num: '1',
+      //           amount: '2.00'
+      //         },
+      //         {
+      //           id: '1234562',
+      //           name: '凉茶 300ml',
+      //           barcode: '12421432143214322',
+      //           price: '3.00',
+      //           num: '2',
+      //           amount: '6.00'
+      //         },
+      //         {
+      //           id: '1234563',
+      //           name: '好吃的薯片',
+      //           barcode: '12421432143214323',
+      //           price: '7.00',
+      //           num: '4',
+      //           amount: '28.00'
+      //         },
+      //         {
+      //           id: '1234564',
+      //           name: '特别好吃的蛋卷',
+      //           barcode: '12421432143214324',
+      //           price: '8.50',
+      //           num: '3',
+      //           amount: '25.50'
+      //         }
+      //       ],
+      //       pageSize: 10,
+      //       pageNo: 1,
+      //       totalPage: 1,
+      //       totalCount: 10
+      //     })
+      //   }).then(res => {
+      //     return res
+      //   })
+      // }
     }
   },
   methods: {
