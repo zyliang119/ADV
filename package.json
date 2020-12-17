@@ -60,5 +60,21 @@
     "vue-svg-icon-loader": "^2.1.1",
     "vue-template-compiler": "^2.6.10",
     "webpack-theme-color-replacer": "^1.3.12"
-  }
+  },
+  "description": "English | [简体中文](./README.zh-CN.md)",
+  "main": ".eslintrc.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zyliang119/ADV.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zyliang119/ADV/issues"
+  },
+  "homepage": "https://github.com/zyliang119/ADV#readme"
 }
