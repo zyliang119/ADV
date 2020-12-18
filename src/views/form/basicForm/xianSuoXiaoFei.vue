@@ -4,10 +4,10 @@
     <a-card :body-style="{padding: '24px 32px'}" :bordered="false">
       <a-form @submit="handleSubmit" :form="form">
         <a-row>
-          <a-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
+          <a-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
             <a-form-item
               label="姓名"
-              :labelCol="{lg: {span: 10}, sm: {span: 4}}"
+              :labelCol="{lg: {span: 7}, sm: {span: 7}}"
               :wrapperCol="{lg: {span: 10}, sm: {span: 17} }">
               <a-input
                 v-decorator="[
@@ -18,7 +18,7 @@
                 placeholder="请输入" />
             </a-form-item>
           </a-col>
-          <a-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
+          <a-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
             <a-form-item
               label="代理商"
               :labelCol="{lg: {span: 7}, sm: {span: 7}}"
@@ -30,7 +30,7 @@
               </a-select>
             </a-form-item>
           </a-col>
-          <a-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
+          <a-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
             <a-form-item
               label="充值状态"
               :labelCol="{lg: {span: 7}, sm: {span: 7}}"
@@ -42,7 +42,7 @@
               </a-select>
             </a-form-item>
           </a-col>
-          <a-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <a-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
             <a-form-item
               label="充值时间"
               :labelCol="{lg: {span: 7}, sm: {span: 7}}"
@@ -50,7 +50,7 @@
              <a-date-picker @change="onChange" />
             </a-form-item>
           </a-col>
-          <a-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
+          <a-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
             <a-form-item
               label
               :labelCol="{lg: {span: 7}, sm: {span: 7}}"
@@ -82,6 +82,7 @@
         row-key="id"
         :columns="goodsColumns"
         :data="loadData">
+
       </s-table>
     </a-card>
   </page-header-wrapper>

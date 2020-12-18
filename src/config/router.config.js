@@ -59,15 +59,15 @@ export const asyncRouterMap = [
             meta: { title: '询价线索', keepAlive: true, permission: [ 'form' ] }
           },
           {
-            path: '/form/step-form',
-            name: 'StepForm',
-            component: () => import('@/views/form/stepForm/StepForm'),
+            path: '/form/base-form/xianSuoXiaoFei',
+            name: 'xianSuoXiaoFei',
+            component: () => import('@/views/form/basicForm/xianSuoXiaoFei'),
             meta: { title: '线索消费', keepAlive: true, permission: [ 'form' ] }
           },
           {
             path: '/form/advanced-form',
             name: 'AdvanceForm',
-            component: () => import('@/views/form/advancedForm/AdvancedForm'),
+            component: () => import('@/views/form/advancedForm/xianSuoDingJia'),
             meta: { title: '线索定价', keepAlive: true, permission: [ 'form' ] }
           }
         ]
