@@ -5,9 +5,11 @@
         <a-row class="form-row" :gutter="[24,16]">
           <a-col :lg="4" :sm="24">
             <a-form-item>
-              <a-button type="primary">
-                <a-icon type="plus" /> 添加定价方案
-              </a-button>
+              <router-link to="./tuanJiaDingJia">
+                <a-button type="primary">
+                  <a-icon type="plus" /> 添加定价方案
+                </a-button>
+              </router-link>
             </a-form-item>
           </a-col>
           <a-col :lg="4" :sm="24">
@@ -103,5 +105,5 @@ export default {
 </script>
 
 <style scoped>
-  .bgColor{background-Color:pink;}
+
 </style>

@@ -44,8 +44,24 @@ export const asyncRouterMap = [
           }
         ]
       },
-
+      // test
+      {
+        path: '/abc',
+        name: 'Abc',
+        redirect: '/abc/bc',
+        component: RouteView,
+        meta: { title: 'ABC', keepAlive: true },
+        children: [
+          {
+            path: '/abc/bc',
+            name: 'BC',
+            meta: { title: 'BC', keepAlive: true },
+            component: () => import('@/views/abc/bc/bc.vue')
+          }
+        ]
+      },
       // forms
+      /*
       {
         path: '/form',
         redirect: '/form/base-form',
@@ -65,14 +81,14 @@ export const asyncRouterMap = [
             meta: { title: '线索消费', keepAlive: true, permission: [ 'form' ] }
           },
           {
-            path: '/form/advanced-form',
-            name: 'AdvanceForm',
+            path: '/form/advancedForm/xianSuoDingJia',
+            name: 'XianSuoDingJia',
             component: () => import('@/views/form/advancedForm/xianSuoDingJia'),
             meta: { title: '线索定价', keepAlive: true, permission: [ 'form' ] }
           }
         ]
       },
-
+      */
       // list
       {
         path: '/list',
