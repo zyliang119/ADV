@@ -44,22 +44,6 @@ export const asyncRouterMap = [
           }
         ]
       },
-      // test
-      {
-        path: '/abc',
-        name: 'Abc',
-        redirect: '/abc/bc',
-        component: RouteView,
-        meta: { title: 'ABC', keepAlive: true },
-        children: [
-          {
-            path: '/abc/bc',
-            name: 'BC',
-            meta: { title: 'BC', keepAlive: true },
-            component: () => import('@/views/abc/bc/bc.vue')
-          }
-        ]
-      },
       // forms
       /*
       {
@@ -89,6 +73,41 @@ export const asyncRouterMap = [
         ]
       },
       */
+      // 询价
+      {
+        name: 'XunJia',
+        path: '/xunJia',
+        redirect: '/xunJia/xunJiaXianSuo',
+        component: RouteView,
+        meta: { title: '询价管理', icon: 'account-book' },
+        children: [
+          {
+            name: 'XunJiaXianSuo',
+            path: '/xunJia/xunJiaXianSuo',
+            component: () => import('@/views/xunJia/xunJiaXianSuo/index.vue'),
+            meta: { title: '询价线索', keepAlive: true }
+          },
+          {
+            name: 'xianSuoXiaoFei',
+            path: '/xunJia/xianSuo/xianSuoXiaoFei',
+            component: () => import('@/views/xunJia/xianSuo/xianSuoXiaoFei.vue'),
+            meta: { title: '线索消费', keepAlive: true }
+          },
+          {
+            name: 'xianSuoDingJia',
+            path: '/xunJia/xianSuo',
+            component: () => import('@/views/xunJia/xianSuo/xianSuoDingJia.vue'),
+            meta: { title: '线索定价', keepAlive: true }
+          },
+          {
+            name: 'tianJiaDingJia',
+            path: '/xunJia/xianSuo/tianJiaDingJia',
+            hidden: true,
+            component: () => import('@/views/xunJia/xianSuo/tianJiaDingJia.vue'),
+            meta: { title: '添加定价方案' }
+          }
+        ]
+      },
       // list
       {
         path: '/list',

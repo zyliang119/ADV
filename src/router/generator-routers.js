@@ -24,9 +24,7 @@ const constantRouterComponents = {
   'AdvanceForm': () => import('@/views/form/advancedForm/AdvancedForm'),
   //xunjia
   'XunJia': () => import('@/views/xunJia/xunJiaXianSuo'),
-  //ABC
-  'Abc': () => import('@/views/abc/bc'),
-  // 'BC': () => import('@/views/abc/bc'),
+  'TianJiaDingJia': () => import('@/views/xunJia/xianSuo/tianJiaDingJia.vue'),
   // list
   'TableList': () => import('@/views/list/TableList'),
   'StandardList': () => import('@/views/list/BasicList'),
