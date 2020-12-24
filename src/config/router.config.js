@@ -108,6 +108,28 @@ export const asyncRouterMap = [
           }
         ]
       },
+      // 商户
+      {
+        name: 'shangHuGuanLi',
+        path: '/shangHu',
+        redirect: '/shangHu/shangHuShenHe',
+        component: RouteView,
+        meta: { title: '商户管理', icon: 'solution' },
+        children: [
+          {
+            name: 'shangHuShenHe',
+            path: '/shangHuGuanLi/shangHuShenHe',
+            component: () => import('@/views/shangHu/shangHuShenHe/shangHuShenHe.vue'),
+            meta: { title: '商户审核' }
+          },
+          {
+            name: 'shangHuGuanLi',
+            path: '/shangHu/shangHuGuanLi',
+            component: () => import('@/views/shangHu/shangHuGuanLi/shangHuGuanLi.vue'),
+            meta: { title: '商户管理' }
+          }
+        ]
+      },
       // list
       {
         path: '/list',

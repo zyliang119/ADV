@@ -4,11 +4,12 @@
       <a-card title="方案信息" class="card-padding">
         <a-form-item label="方案名称">
           <a-input
+          placeholder="请填写"
           v-decorator="[
           'fangAnMingCheng',
           {
             initialValue: fangAnMingCheng,
-            rules: [{ required: true }]
+            rules: [{ required: true ,message: '方案名称不能为空'}]
             }]"/>
         </a-form-item>
         <a-form-item label="适用品类">
@@ -17,7 +18,7 @@
           </a-select>
         </a-form-item>
         <a-form-item label="备注">
-            <a-input v-decorator="[ 'beiZhu' ]" />
+            <a-input v-decorator="[ 'beiZhu' ]" placeholder="请填写" />
         </a-form-item>
       </a-card>
       <a-card title="定价信息-履带式" class="card-padding">
